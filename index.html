@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boluwatife Babajimi-Joseph, DVM — Healthcare Content Writer & Marketing Consultant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+/* ── TOKENS ─────────────────────────────────────────── */
+:root {
+  --navy:     #0D2137;
+  --navy-mid: #163349;
+  --slate:    #4A6580;
+  --mist:     #8BA3B8;
+  --off-white:#F7F9FB;
+  --white:    #FFFFFF;
+  --amber:    #C8882A;
+  --amber-lt: #F5E9D6;
+  --ink:      #1A2B3C;
+  --border:   rgba(13,33,55,0.10);
+
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans:  'Inter', system-ui, sans-serif;
+
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 16px;
+}
+
+/* ── RESET ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ── NAV ────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,33,55,0.97);
+  backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5%;
+  height: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--white);
+  letter-spacing: 0.01em;
+}
+.nav-logo span { color: var(--amber); }
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+}
+.nav-links a {
+  font-size: 13px; font-weight: 400;
+  color: rgba(255,255,255,0.65);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-hire {
+  font-size: 13px; font-weight: 500;
+  background: var(--amber);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: var(--r-sm);
+  transition: opacity 0.2s;
+}
+.nav-hire:hover { opacity: 0.88; }
+
+/* ── HERO ───────────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 120px 5% 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 80px;
+  align-items: center;
+  max-width: 1100px;
+}
+.hero-credential {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,136,42,0.15);
+  border: 1px solid rgba(200,136,42,0.35);
+  color: var(--amber);
+  font-size: 12px; font-weight: 500; letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 99px;
+  margin-bottom: 28px;
+}
+.hero-credential::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+}
+.hero-h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5vw, 64px);
+  color: var(--white);
+  line-height: 1.12;
+  margin-bottom: 24px;
+  max-width: 14ch;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+}
+.hero-sub {
+  font-size: 16px; font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  max-width: 52ch;
+  margin-bottom: 40px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  font-size: 14px; font-weight: 500;
+  background: var(--amber);
+  color: var(--white);
+  padding: 13px 28px;
+  border-radius: var(--r-sm);
+  transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.88; }
+.btn-ghost {
+  font-size: 14px; font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 13px 28px;
+  border-radius: var(--r-sm);
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+
+/* Hero right — stats panel */
+.hero-stats {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--r-lg);
+  padding: 36px 32px;
+  display: flex; flex-direction: column; gap: 28px;
+}
+.hero-stat-item {}
+.hero-stat-num {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.hero-stat-num span { color: var(--amber); }
+.hero-stat-label {
+  font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+.hero-stat-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* Hero bg texture */
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(200,136,42,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── ABOUT ──────────────────────────────────────────── */
+#about {
+  padding: 96px 5%;
+  background: var(--white);
+}
+.about-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start;
+}
+.about-left {}
+.section-label {
+  font-size: 11px; font-weight: 500;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+.section-h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 40px);
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.about-body {
+  font-size: 15px; font-weight: 300;
+  color: var(--slate);
+  line-height: 1.8;
+  max-width: 48ch;
+}
+.about-body p + p { margin-top: 16px; }
+.about-right {}
+.services-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.services-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--ink);
+}
+.services-list li:first-child { border-top: 1px solid var(--border); }
+.services-list li::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* ── METRICS ────────────────────────────────────────── */
+#metrics {
+  padding: 80px 5%;
+  background: var(--navy);
+}
+.metrics-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.metric-item {
+  padding: 40px 40px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.metric-item:last-child { border-right: none; }
+.metric-num {
+  font-family: var(--serif);
+  font-size: 44px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.metric-num em { color: var(--amber); font-style: normal; }
+.metric-desc {
+  font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  max-width: 22ch;
+}
+
+/* ── WRITING SAMPLES ────────────────────────────────── */
+#writing {
+  padding: 96px 5%;
+  background: var(--off-white);
+}
+.writing-inner { max-width: 1100px; margin: 0 auto; }
+.writing-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 48px;
+}
+.writing-header-right {
+  font-size: 13px; color: var(--slate);
+  font-style: italic;
+  max-width: 36ch; text-align: right;
+}
+.samples-list { display: flex; flex-direction: column; gap: 0; }
+.sample-item {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 24px;
+  align-items: start;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.sample-item:first-child { border-top: 1px solid var(--border); }
+.sample-num {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--mist);
+  padding-top: 2px;
+}
+.sample-content {}
+.sample-niche {
+  display: inline-block;
+  font-size: 11px; font-weight: 500;
+  padding: 2px 9px;
+  border-radius: var(--r-sm);
+  margin-bottom: 8px;
+}
+.niche-health { background: #E6F0F7; color: #1B5E8A; }
+.niche-tech   { background: #EAF0EA; color: #2D6E2D; }
+.niche-sci    { background: #F5F0E6; color: #8A5E1B; }
+.niche-ecom   { background: #F0EAF5; color: #6E2D8A; }
+.sample-title {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.sample-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--slate);
+  line-height: 1.65;
+  max-width: 60ch;
+}
+.sample-meta {
+  font-size: 12px; color: var(--mist);
+  margin-top: 8px;
+}
+.sample-arrow {
+  font-size: 18px; color: var(--mist);
+  padding-top: 4px;
+  transition: color 0.15s, transform 0.15s;
+}
+.sample-item:hover .sample-arrow {
+  color: var(--amber);
+  transform: translateX(3px);
+}
+
+/* ── PORTFOLIO ──────────────────────────────────────── */
+#portfolio {
+  padding: 96px 5%;
+  background: var(--white);
+}
+.portfolio-inner { max-width: 1100px; margin: 0 auto; }
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.portfolio-card {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.portfolio-card:hover {
+  border-color: rgba(13,33,55,0.25);
+  box-shadow: 0 8px 32px rgba(13,33,55,0.08);
+}
+.portfolio-thumb {
+  height: 160px;
+  background: var(--navy-mid);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-thumb.t1 { background: linear-gradient(135deg, #0D2137 60%, #163349 100%); }
+.portfolio-thumb.t2 { background: linear-gradient(135deg, #163349 60%, #1B4A6B 100%); }
+.portfolio-thumb.t3 { background: linear-gradient(135deg, #1A2F40 60%, #0D2137 100%); }
+.portfolio-thumb.t4 { background: linear-gradient(135deg, #112030 60%, #1A3250 100%); }
+.portfolio-thumb-label {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: rgba(255,255,255,0.15);
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding: 0 24px;
+}
+.portfolio-thumb .result-badge {
+  position: absolute; bottom: 14px; right: 14px;
+  background: var(--amber);
+  color: var(--white);
+  font-size: 11px; font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--r-sm);
+}
+.portfolio-body { padding: 24px; }
+.portfolio-cat {
+  font-size: 11px; font-weight: 500;
+  color: var(--mist);
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.portfolio-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.portfolio-desc {
+  font-size: 13px; font-weight: 300;
+  color: var(--slate);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+.portfolio-link {
+  font-size: 13px; font-weight: 500;
+  color: var(--amber);
+}
+
+/* ── TESTIMONIAL ────────────────────────────────────── */
+#testimonial {
+  padding: 96px 5%;
+  background: var(--navy);
+}
+.testimonial-inner {
+  max-width: 800px; margin: 0 auto;
+  text-align: center;
+}
+.testimonial-mark {
+  font-family: var(--serif);
+  font-size: 80px;
+  color: var(--amber);
+  opacity: 0.35;
+  line-height: 0.8;
+  margin-bottom: 32px;
+}
+.testimonial-quote {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.5vw, 26px);
+  color: var(--white);
+  line-height: 1.55;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+.testimonial-author {
+  font-size: 13px; font-weight: 400;
+  color: var(--mist);
+}
+
+/* ── SKILLS ─────────────────────────────────────────── */
+#skills {
+  padding: 96px 5%;
+  background: var(--off-white);
+}
+.skills-inner { max-width: 1100px; margin: 0 auto; }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.skill-group {}
+.skill-group-heading {
+  font-size: 13px; font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-tag {
+  font-size: 12px; font-weight: 400;
+  color: var(--slate);
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: var(--r-sm);
+}
+
+/* ── RESUME ─────────────────────────────────────────── */
+#resume {
+  padding: 96px 5%;
+  background: var(--white);
+}
+.resume-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start;
+}
+.resume-left {}
+.resume-left .section-h2 { margin-bottom: 16px; }
+.resume-left p {
+  font-size: 14px; font-weight: 300;
+  color: var(--slate);
+  line-height: 1.8;
+  max-width: 44ch;
+  margin-bottom: 32px;
+}
+.resume-buttons { display: flex; flex-direction: column; gap: 10px; }
+.resume-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-size: 14px;
+  color: var(--ink);
+  transition: border-color 0.2s, background 0.2s;
+}
+.resume-btn:hover {
+  border-color: var(--navy);
+  background: var(--off-white);
+}
+.resume-btn-label { font-weight: 500; }
+.resume-btn-sub { font-size: 12px; color: var(--mist); }
+.resume-btn-icon { color: var(--amber); font-size: 16px; }
+.resume-right {}
+.cert-list { display: flex; flex-direction: column; gap: 14px; }
+.cert-item {
+  display: flex; gap: 14px;
+  padding: 16px;
+  background: var(--off-white);
+  border-radius: var(--r-md);
+}
+.cert-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+.cert-name { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 2px; }
+.cert-issuer { font-size: 12px; color: var(--mist); }
+
+/* ── CONTACT ────────────────────────────────────────── */
+#contact {
+  padding: 96px 5%;
+  background: var(--navy);
+}
+.contact-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start;
+}
+.contact-left {}
+.contact-left .section-label { color: rgba(255,255,255,0.4); }
+.contact-left .section-h2 { color: var(--white); margin-bottom: 16px; }
+.contact-left p {
+  font-size: 14px; font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+  max-width: 40ch;
+  margin-bottom: 36px;
+}
+.contact-channels { display: flex; flex-direction: column; gap: 16px; }
+.contact-channel {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
+.contact-channel-icon {
+  width: 38px; height: 38px;
+  border-radius: var(--r-sm);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.contact-channel-label { font-weight: 300; }
+.contact-channel-value { font-weight: 500; color: var(--white); }
+
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label {
+  font-size: 12px; font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.04em;
+}
+.form-field input,
+.form-field textarea {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--r-sm);
+  padding: 12px 16px;
+  font-size: 14px; font-family: var(--sans);
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: rgba(255,255,255,0.25); }
+.form-field input:focus,
+.form-field textarea:focus { border-color: var(--amber); }
+.form-field textarea { resize: vertical; min-height: 110px; }
+.form-submit {
+  font-size: 14px; font-weight: 500;
+  background: var(--amber);
+  color: var(--white);
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+.form-submit:hover { opacity: 0.88; }
+
+/* ── FOOTER ─────────────────────────────────────────── */
+footer {
+  background: #08182A;
+  padding: 28px 5%;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-copy {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+}
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+/* ── HERO ENTRANCE ──────────────────────────────────── */
+.hero-left { opacity: 0; transform: translateY(24px); animation: fadeUp 0.7s 0.1s ease forwards; }
+.hero-stats { opacity: 0; transform: translateY(24px); animation: fadeUp 0.7s 0.35s ease forwards; }
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-left, .hero-stats { animation: none; opacity: 1; transform: none; }
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero-stats { display: none; }
+  .about-inner { grid-template-columns: 1fr; gap: 48px; }
+  .metrics-inner { grid-template-columns: 1fr; }
+  .metric-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 32px 0; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .resume-inner { grid-template-columns: 1fr; gap: 48px; }
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  .writing-header { flex-direction: column; gap: 12px; }
+  .writing-header-right { text-align: left; }
+  .nav-links { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dr. <span>Bollus</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-hire">Hire me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-credential">Doctor of Veterinary Medicine · DVM, University of Ibadan</div>
+      <h1 class="hero-h1">Healthcare content that <em>actually</em> converts.</h1>
+      <p class="hero-sub">I'm Boluwatife Babajimi-Joseph — a DVM-trained content writer and digital marketing consultant helping clinics, pharmaceutical brands, and health-tech companies grow through precise, research-backed communication. Lagos-based. Available remotely worldwide.</p>
+      <div class="hero-actions">
+        <a href="#writing" class="btn-primary">See my writing</a>
+        <a href="#contact" class="btn-ghost">Get in touch</a>
+        <a href="https://wa.me/2347034400785" class="btn-ghost">WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <div class="hero-stat-num"><em>$8,000</em></div>
+        <div class="hero-stat-label">Revenue generated from $3,000 ad spend — Janis Healthcare</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">130<em>%</em></div>
+        <div class="hero-stat-label">Organic traffic growth with 5+ page-1 Google rankings</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">₦<em>5M</em></div>
+        <div class="hero-stat-label">Sales closed in 3 months at a 30% conversion rate</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">6<em>+</em></div>
+        <div class="hero-stat-label">Years writing healthcare, tech, and e-commerce content</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-left">
+      <p class="section-label">About me</p>
+      <h2 class="section-h2">From surgery to search rankings.</h2>
+      <div class="about-body">
+        <p>I trained as a veterinarian at the University of Ibadan — one of Africa's leading medical faculties. The diagnostic rigour, the habit of checking sources, and the discipline of communicating complex information clearly: those are the things I brought with me when I moved into digital marketing and content writing.</p>
+        <p>What I've built since is a 6-year track record of producing content that does what it's supposed to do: rank, convert, and communicate with authority. I work across healthcare, pharmaceutical, blockchain, and e-commerce verticals — and I use AI tools for research support only. Every word in the final copy is mine.</p>
+      </div>
+    </div>
+    <div class="about-right">
+      <ul class="services-list">
+        <li>SEO blog writing and long-form healthcare content</li>
+        <li>Healthcare and pharmaceutical copywriting</li>
+        <li>Email marketing campaigns and automated sequences</li>
+        <li>WordPress content publishing and on-page formatting</li>
+        <li>Google Business Profile management for clinics</li>
+        <li>Sales funnel design and landing page copy</li>
+        <li>Marketing automation via GoHighLevel</li>
+        <li>Pharmaceutical and medical product sales</li>
+        <li>Yoruba–English bilingual content and translation</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+  <div class="metrics-inner">
+    <div class="metric-item">
+      <div class="metric-num">90,000<em>+</em></div>
+      <div class="metric-desc">Words written across healthcare, tech, and e-commerce niches</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num"><em>1</em> paper</div>
+      <div class="metric-desc">Peer-reviewed publication — Afr. J. Biomed. Res., Vol. 22, 2019</div>
+    </div>
+    <div class="metric-item">
+      <div class="metric-num">30<em>%</em></div>
+      <div class="metric-desc">Sales conversion rate as remote sales closer — 20 calls per day</div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING SAMPLES -->
+<section id="writing">
+  <div class="writing-inner">
+    <div class="writing-header">
+      <div>
+        <p class="section-label">Writing samples</p>
+        <h2 class="section-h2">Human-written. Always.</h2>
+      </div>
+      <p class="writing-header-right">AI tools are used for research and keyword planning only — never to generate final copy.</p>
+    </div>
+    <div class="samples-list">
+
+      <a href="https://docs.google.com/document/d/your-link" class="sample-item">
+        <div class="sample-num">01</div>
+        <div class="sample-content">
+          <span class="sample-niche niche-health">Healthcare</span>
+          <div class="sample-title">How to Choose the Right Veterinarian for Your Pet in Nigeria</div>
+          <div class="sample-desc">A DVM-authored guide for Nigerian pet owners on evaluating veterinary credentials, clinic hygiene standards, and preventive care requirements. Targets mid-funnel search intent with structured H2s and actionable advice.</div>
+          <div class="sample-meta">SEO blog article · ~1,800 words · 2026</div>
+        </div>
+        <div class="sample-arrow">→</div>
+      </a>
+
+      <a href="https://bollus.medium.com/how-to-use-ambient-listening-ai-to-solve-physician-burnout-in-your-healthcare-system-64d7692b335b" class="sample-item">
+        <div class="sample-num">02</div>
+        <div class="sample-content">
+          <span class="sample-niche niche-health">HealthTech</span>
+          <div class="sample-title">How to Use Ambient Listening AI to Solve Physician Burnout</div>
+          <div class="sample-desc">A narrative-led article exploring how ambient AI documentation tools reduce after-hours charting for physicians, written for a professional healthcare audience and grounded in published industry data.</div>
+          <div class="sample-meta">Long-form article · 8-min read · Medium · 2025</div>
+        </div>
+        <div class="sample-arrow">→</div>
+      </a>
+
+      <a href="https://tonwiki.space/wiki/Block_Structure_in_TON_Blockchain" class="sample-item">
+        <div class="sample-num">03</div>
+        <div class="sample-content">
+          <span class="sample-niche niche-tech">Blockchain</span>
+          <div class="sample-title">Block Structure in TON Blockchain</div>
+          <div class="sample-desc">A detailed technical breakdown of TON block architecture for a global developer and Web3 audience. Demonstrates ability to research and write with authority on highly specialised technical subjects.</div>
+          <div class="sample-meta">Technical article · TON Wiki · 2024</div>
+        </div>
+        <div class="sample-arrow">→</div>
+      </a>
+
+      <a href="https://docs.google.com/document/d/1WKGCLHGDblnzQP-AKZXJWgIAnP-1kbflfpnDSujmQZQ/edit?usp=sharing" class="sample-item">
+        <div class="sample-num">04</div>
+        <div class="sample-content">
+          <span class="sample-niche niche-tech">Web copy</span>
+          <div class="sample-title">Full Website Copy — DECA DATA LTD</div>
+          <div class="sample-desc">End-to-end website copy for a Nigerian technology company, covering homepage, about, services, and contact pages. Developed from brand voice brief through to publication-ready copy.</div>
+          <div class="sample-meta">Website copywriting · Full brand voice · 2025</div>
+        </div>
+        <div class="sample-arrow">→</div>
+      </a>
+
+      <a href="http://www.ojshostng.com/index.php/ajbr/article/view/1333" class="sample-item">
+        <div class="sample-num">05</div>
+        <div class="sample-content">
+          <span class="sample-niche niche-sci">Scientific</span>
+          <div class="sample-title">Post-vaccinal Antibody Response to Canine Distemper Virus Vaccine (Peer-reviewed)</div>
+          <div class="sample-desc">Co-authored undergraduate research paper published in the African Journal of Biomedical Research (Vol. 22, 2019). Demonstrates scientific writing, data interpretation, and academic publication standards.</div>
+          <div class="sample-meta">Research paper · Afr. J. Biomed. Res. · Vol. 22 · 2019</div>
+        </div>
+        <div class="sample-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-inner">
+    <p class="section-label">Portfolio</p>
+    <h2 class="section-h2">Selected projects.</h2>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb t1">
+          <div class="portfolio-thumb-label">Martmate Consulting</div>
+          <span class="result-badge">Active client pipeline</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-cat">Web design · Healthcare marketing</div>
+          <div class="portfolio-name">Martmate Consulting</div>
+          <div class="portfolio-desc">Designed and built a healthcare marketing website covering Google Business Profile management, funnel design, and healthcare SEO services for Nigerian clinics. Generating inbound enquiries from local search.</div>
+          <a href="#" class="portfolio-link">View project →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb t2">
+          <div class="portfolio-thumb-label">BuyASAP Africa</div>
+          <span class="result-badge">Sales funnel</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-cat">Funnel design · E-commerce</div>
+          <div class="portfolio-name">BuyASAP Africa — Sales Funnel</div>
+          <div class="portfolio-desc">Multi-step sales funnel for a crypto-enabled African e-commerce platform, mapping the customer journey from cold traffic through to purchase and post-sale retention.</div>
+          <a href="https://miro.com/app/board/uXjVN5Rma4Y=/" class="portfolio-link">View on Miro →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb t3">
+          <div class="portfolio-thumb-label">DECA DATA LTD</div>
+          <span class="result-badge">ICP + journey map</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-cat">Marketing strategy · Corporate</div>
+          <div class="portfolio-name">DECA DATA LTD — Customer Journey</div>
+          <div class="portfolio-desc">Full Ideal Customer Profile and customer journey map for DECA Fiber, identifying key personas, pain points, and touchpoints across the awareness-to-loyalty funnel.</div>
+          <a href="https://miro.com/app/board/uXjVL5hZHns=/" class="portfolio-link">View on Miro →</a>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb t4">
+          <div class="portfolio-thumb-label">SEO result</div>
+          <span class="result-badge">Page 1 · Position 2</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-cat">SEO content · Organic ranking</div>
+          <div class="portfolio-name">Page-1 Google Ranking</div>
+          <div class="portfolio-desc">An article produced for a client ranks second on the first page of Google for its target long-tail keyword — demonstrating the real-world impact of intent-matched, well-structured content.</div>
+          <a href="#" class="portfolio-link">View screenshot →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section id="testimonial">
+  <div class="testimonial-inner">
+    <div class="testimonial-mark">"</div>
+    <blockquote class="testimonial-quote">
+      Boluwatife brought a level of precision to our content that I didn't expect. The articles were well-researched, clearly written, and actually moved our search rankings. He also understands healthcare — which made briefing him much easier than working with a general copywriter.
+    </blockquote>
+    <p class="testimonial-author">Healthcare client, Lagos &nbsp;·&nbsp; Martmate Consulting, 2025–2026</p>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-inner">
+    <p class="section-label">Skills & tools</p>
+    <h2 class="section-h2">What I bring to every project.</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-heading">Writing & content</div>
+        <div class="skill-tags">
+          <span class="skill-tag">SEO copywriting</span>
+          <span class="skill-tag">Long-form articles</span>
+          <span class="skill-tag">Healthcare content</span>
+          <span class="skill-tag">Email copy</span>
+          <span class="skill-tag">Landing pages</span>
+          <span class="skill-tag">Sales copy</span>
+          <span class="skill-tag">Proofreading</span>
+          <span class="skill-tag">Technical writing</span>
+          <span class="skill-tag">Ghostwriting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-heading">Digital marketing</div>
+        <div class="skill-tags">
+          <span class="skill-tag">WordPress</span>
+          <span class="skill-tag">Facebook Ads</span>
+          <span class="skill-tag">Google Ads</span>
+          <span class="skill-tag">Google Business Profile</span>
+          <span class="skill-tag">GoHighLevel CRM</span>
+          <span class="skill-tag">Email automation</span>
+          <span class="skill-tag">Social media</span>
+          <span class="skill-tag">Content strategy</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-heading">Healthcare domain</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Veterinary medicine</span>
+          <span class="skill-tag">Pharmacology</span>
+          <span class="skill-tag">Public health</span>
+          <span class="skill-tag">Patient communications</span>
+          <span class="skill-tag">Animal nutrition</span>
+          <span class="skill-tag">Healthcare compliance</span>
+          <span class="skill-tag">Medical research</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-heading">AI & tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Claude AI</span>
+          <span class="skill-tag">ChatGPT (research only)</span>
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">Miro</span>
+          <span class="skill-tag">Elementor</span>
+          <span class="skill-tag">Google Workspace</span>
+          <span class="skill-tag">Microsoft Office</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="resume-inner">
+    <div class="resume-left">
+      <p class="section-label">Resume</p>
+      <h2 class="section-h2">Download my CV.</h2>
+      <p>Available in three versions — each tailored to a specific role type. Select the one most relevant to your opening.</p>
+      <div class="resume-buttons">
+        <a href="#" class="resume-btn">
+          <div>
+            <div class="resume-btn-label">Content Writing & Digital Marketing</div>
+            <div class="resume-btn-sub">SEO writing · Email marketing · WordPress · Agency roles</div>
+          </div>
+          <span class="resume-btn-icon">↓</span>
+        </a>
+        <a href="#" class="resume-btn">
+          <div>
+            <div class="resume-btn-label">Pharmaceutical & Medical Sales</div>
+            <div class="resume-btn-sub">Sales representative · Medical liaison · Healthcare B2B</div>
+          </div>
+          <span class="resume-btn-icon">↓</span>
+        </a>
+        <a href="#" class="resume-btn">
+          <div>
+            <div class="resume-btn-label">AI Data Specialist</div>
+            <div class="resume-btn-sub">LLM training · Data annotation · Yoruba · Scientific tasks</div>
+          </div>
+          <span class="resume-btn-icon">↓</span>
+        </a>
+      </div>
+    </div>
+    <div class="resume-right">
+      <p class="section-label">Certifications</p>
+      <div class="cert-list">
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">EF SET English Certificate</div>
+            <div class="cert-issuer">65/100 · C1 Advanced · EF Education First</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Foundations of Digital Marketing & E-commerce</div>
+            <div class="cert-issuer">Google · 2019</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Proofreading Certification</div>
+            <div class="cert-issuer">Verified · Independent</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Digital Marketing Apprenticeship</div>
+            <div class="cert-issuer">Acadium · Ascendant Group · Newark, Delaware USA</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-dot"></div>
+          <div>
+            <div class="cert-name">Doctor of Veterinary Medicine (D.V.M)</div>
+            <div class="cert-issuer">University of Ibadan · 2011–2016</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <p class="section-label">Contact</p>
+      <h2 class="section-h2">Let's work together.</h2>
+      <p>Whether you need a healthcare content writer, a digital marketing consultant, or a pharmaceutical sales professional — I'm available immediately for part-time, full-time, and project-based work.</p>
+      <div class="contact-channels">
+        <div class="contact-channel">
+          <div class="contact-channel-icon">✉</div>
+          <div>
+            <div class="contact-channel-label">Email</div>
+            <div class="contact-channel-value">josephboluwatife@yahoo.com</div>
+          </div>
+        </div>
+        <div class="contact-channel">
+          <div class="contact-channel-icon">📱</div>
+          <div>
+            <div class="contact-channel-label">WhatsApp</div>
+            <div class="contact-channel-value">+234 703 440 0785</div>
+          </div>
+        </div>
+        <div class="contact-channel">
+          <div class="contact-channel-icon">💼</div>
+          <div>
+            <div class="contact-channel-label">LinkedIn</div>
+            <div class="contact-channel-value">linkedin.com/in/drbollus</div>
+          </div>
+        </div>
+        <div class="contact-channel">
+          <div class="contact-channel-icon">📍</div>
+          <div>
+            <div class="contact-channel-label">Location</div>
+            <div class="contact-channel-value">Lagos, Nigeria · Remote worldwide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form">
+        <div class="form-field">
+          <label>Your name</label>
+          <input type="text" placeholder="e.g. Adaobi Okafor">
+        </div>
+        <div class="form-field">
+          <label>Email address</label>
+          <input type="email" placeholder="you@company.com">
+        </div>
+        <div class="form-field">
+          <label>What do you need?</label>
+          <textarea placeholder="Tell me about the role or project — the more detail, the better."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Boluwatife Babajimi-Joseph, DVM. Lagos, Nigeria.</div>
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/drbollus">LinkedIn</a>
+    <a href="https://bollus.medium.com">Medium</a>
+    <a href="https://wa.me/2347034400785">WhatsApp</a>
+  </div>
+</footer>
+
+</body>
+</html>
