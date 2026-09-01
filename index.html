@@ -82,6 +82,28 @@ nav {
   transition: opacity 0.2s;
 }
 .nav-hire:hover { opacity: 0.88; }
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ── HERO ───────────────────────────────────────────── */
 #hero {
@@ -93,42 +115,16 @@ nav {
   overflow: hidden;
 }
   .hero-grid {
-    grid-template-columns: 2fr;
-    gap: 0;
-    margin-bottom: 40px;
-  }
-  .hero-left {
-    display: contents;
-  }
-  .hero-credential {
-    order: 1;
-  }
-  .hero-h1 {
-    order: 2;
-  }
-  .hero-photo {
-    order: 2;
-    width: 500px;
-    margin: 24px auto;
-  }
-  .hero-sub {
-    order: 3;
-  }
-  .hero-actions {
-    order: 4;
-  }
-  .hero-stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .hero-stat-bar-item:nth-child(2) {
-    border-right: none;
-  }
-  .hero-stat-bar-item:nth-child(3) {
-    border-top: 1px solid rgba(255,255,255,0.07);
-  }
-  .hero-stat-bar-item:nth-child(4) {
-    border-top: 1px solid rgba(255,255,255,0.07);
-  }
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+}
 .hero-photo {
   width: 100%;
   display: flex;
@@ -136,7 +132,8 @@ nav {
   justify-content: right;
 }
 .hero-photo img {
-  width: 500px;
+  width: 100%;
+  max-width: 420px;
   display: block;
   object-fit: cover;
   object-position: top;
@@ -705,8 +702,21 @@ footer {
 
 /* ── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .hero-stats { display: none; }
+  /* Hero */
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-left { display: contents; }
+  .hero-credential { order: 1; }
+  .hero-h1 { order: 2; }
+  .hero-photo { order: 3; margin: 24px auto; }
+  .hero-sub { order: 4; }
+  .hero-actions { order: 5; }
+
+  .hero-stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .hero-stat-bar-item:nth-child(2) { border-right: none; }
+  .hero-stat-bar-item:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.07); }
+  .hero-stat-bar-item:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.07); }
+
+  /* Other sections */
   .about-inner { grid-template-columns: 1fr; gap: 48px; }
   .metrics-inner { grid-template-columns: 1fr; }
   .metric-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 32px 0; }
@@ -716,7 +726,27 @@ footer {
   .contact-inner { grid-template-columns: 1fr; gap: 48px; }
   .writing-header { flex-direction: column; gap: 12px; }
   .writing-header-right { text-align: left; }
-  .nav-links { display: none; }
+  .nav-hire { display: none; }
+.nav-toggle { display: flex; }
+.nav-links {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  gap: 0;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 8px 5%;
+}
+.nav-links.open { display: flex; }
+.nav-links li { width: 100%; }
+.nav-links a {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
 }
 
 </style>
@@ -726,7 +756,7 @@ footer {
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">Dr. <span>Bollus</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#writing">Writing</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
@@ -734,6 +764,11 @@ footer {
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-hire">Hire me</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- HERO -->
@@ -1159,6 +1194,23 @@ footer {
     <a href="https://wa.me/2347034400785">WhatsApp</a>
   </div>
 </footer>
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
 
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  navLinks.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
 </body>
 </html>
