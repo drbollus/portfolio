@@ -92,21 +92,83 @@ nav {
   position: relative;
   overflow: hidden;
 }
-.hero-grid { grid-template-columns: 1fr; gap: 40px; }
-.hero-photo { width: 200px; margin: 0 auto; }
-.hero-stats { display: none; 
-}
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 40px;
+  }
+  .hero-left {
+    display: contents;
+  }
+  .hero-credential {
+    order: 1;
+  }
+  .hero-h1 {
+    order: 2;
+  }
+  .hero-photo {
+    order: 3;
+    width: 220px;
+    margin: 24px auto;
+  }
+  .hero-sub {
+    order: 4;
+  }
+  .hero-actions {
+    order: 5;
+  }
+  .hero-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-stat-bar-item:nth-child(2) {
+    border-right: none;
+  }
+  .hero-stat-bar-item:nth-child(3) {
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .hero-stat-bar-item:nth-child(4) {
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
 .hero-photo {
-  width: 200px;
-  flex-shrink: 0;
-  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 .hero-photo img {
-  width: 100%;
-  border-radius: 16px;
+  width: 300px;
   display: block;
   object-fit: cover;
-  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.35));
+  object-position: top;
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.4));
+}
+.hero-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  max-width: 1200px;
+}
+.hero-stat-bar-item {
+  padding: 28px 32px;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+.hero-stat-bar-item:last-child { border-right: none; }
+.hero-stat-bar-num {
+  font-family: var(--serif);
+  font-size: 28px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.hero-stat-bar-num span { color: var(--amber); }
+.hero-stat-bar-label {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
 }
 .hero-credential {
   display: inline-flex; align-items: center; gap: 8px;
@@ -679,37 +741,33 @@ footer {
     <div class="hero-left">
       <div class="hero-credential">Doctor of Veterinary Medicine · DVM, University of Ibadan</div>
       <h1 class="hero-h1">Healthcare content that <em>actually</em> converts.</h1>
-      <p class="hero-sub">I'm Boluwatife Babajimi-Joseph, a DVM-trained content writer and digital marketing consultant helping clinics, pharmaceutical brands, and health-tech companies grow through precise, research-backed communication. Lagos-based. Available remotely worldwide.</p>
+      <p class="hero-sub">I'm Boluwatife Babajimi-Joseph — a DVM-trained content writer and digital marketing consultant helping clinics, pharmaceutical brands, and health-tech companies grow through precise, research-backed communication. Lagos-based. Available remotely worldwide.</p>
       <div class="hero-actions">
         <a href="#writing" class="btn-primary">See my writing</a>
         <a href="#contact" class="btn-ghost">Get in touch</a>
         <a href="https://wa.me/2347034400785" class="btn-ghost">WhatsApp</a>
       </div>
     </div>
-        </div>
     <div class="hero-photo">
       <img src="bollus.png" alt="Boluwatife Babajimi-Joseph, DVM — Healthcare Content Writer and Digital Marketing Consultant">
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat-item">
-        <div class="hero-stat-num"><em>$8,000</em></div>
-        <div class="hero-stat-label">Revenue generated from $3,000 ad spend at Janis Healthcare</div>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">130<em>%</em></div>
-        <div class="hero-stat-label">Organic traffic growth with 5+ page-1 Google rankings in 6 months at BuyASAP</div>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">₦<em>5M</em></div>
-        <div class="hero-stat-label">Sales closed in 3 months at a 30% conversion rate at SaddlePrime</div>
-      </div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat-item">
-        <div class="hero-stat-num">6<em>+</em></div>
-        <div class="hero-stat-label">Years writing healthcare, tech, and e-commerce content</div>
-      </div>
+  </div>
+  <div class="hero-stats-bar">
+    <div class="hero-stat-bar-item">
+      <div class="hero-stat-bar-num"><span>$8,000</span></div>
+      <div class="hero-stat-bar-label">Revenue from $3,000 ad spend — Janis Healthcare</div>
+    </div>
+    <div class="hero-stat-bar-item">
+      <div class="hero-stat-bar-num">130<span>%</span></div>
+      <div class="hero-stat-bar-label">Organic traffic growth with 5+ page-1 Google rankings</div>
+    </div>
+    <div class="hero-stat-bar-item">
+      <div class="hero-stat-bar-num">₦<span>5M</span></div>
+      <div class="hero-stat-bar-label">Sales closed in 3 months at 30% conversion rate</div>
+    </div>
+    <div class="hero-stat-bar-item">
+      <div class="hero-stat-bar-num">6<span>+</span></div>
+      <div class="hero-stat-bar-label">Years writing healthcare, tech, and e-commerce content</div>
     </div>
   </div>
 </section>
